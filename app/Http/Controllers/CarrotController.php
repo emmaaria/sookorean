@@ -41,8 +41,6 @@ class CarrotController extends Controller
         }
         if ($request->hasFile('image')) {
             $fileName = $request->file('image')->store('carrot');
-            $file = Storage::get($fileName);
-            Storage::disk('ftp')->put('carrot/'.str_replace('carrot/','', $fileName), $file);
         }
         $data = [
             'image' => $fileName,

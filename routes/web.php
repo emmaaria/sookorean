@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CarrotController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/storage-link', function() {
+    $output = [];
+    Artisan::call('storage:link', $output);
+    dd('Done');
+});
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin-logout', [App\Http\Controllers\UserController::class, 'logout'])->name('admin.logout');

@@ -53,7 +53,7 @@
                                     <div class="row gy-4">
                                         <div class="col-md-12">
                                             <label class="form-label">Image</label>
-                                            <img src="{{ \Illuminate\Support\Facades\Storage::disk('ftp')->url($row->image) }}" />
+                                            <img class="img-fluid" src="{{ asset($row->image) }}"  alt="Image"/>
                                             <input type="file" accept=".jpeg, .jpg, .png, .gif" class="form-control @error('image') is-invalid @enderror"
                                                    name="image" required>
                                             @error('image')
