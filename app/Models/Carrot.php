@@ -9,6 +9,7 @@ class Carrot extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'image',
         'title_english',
         'title_japanese',
         'title_french',

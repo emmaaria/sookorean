@@ -2,6 +2,11 @@
 @section('title')
     Add New Carrot
 @endsection
+@section('style')
+    <!-- Filepond css -->
+    <link rel="stylesheet" href="{{ asset('') }}assets/libs/filepond/filepond.min.css" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('') }}assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css">
+@endsection
 @section('content')
     <!-- ============================================================== -->
     <!-- Start right Content here -->
@@ -47,13 +52,24 @@
                             </div>
                             <!-- end card header -->
                             <div class="card-body">
-                                <form action="{{ route('carrot.store') }}" method="post">
+                                <form action="{{ route('carrot.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row gy-4">
                                         <div class="col-md-12">
+                                            <label class="form-label">Image</label>
+                                            <input type="file" accept=".jpeg, .jpg, .png, .gif" class="form-control @error('image') is-invalid @enderror"
+                                                   name="image" required>
+                                            @error('image')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-12">
                                             <label class="form-label">English Title</label>
                                             <input type="text"
-                                                   class="form-control @error('title_english') is-invalid @enderror" name="title_english"
+                                                   class="form-control @error('title_english') is-invalid @enderror"
+                                                   name="title_english"
                                                    value="{{ old('title_english') }}" required>
                                             @error('title_english')
                                             <span class="invalid-feedback" role="alert">
@@ -65,7 +81,8 @@
                                         <div class="col-md-12">
                                             <label class="form-label">Japanese Title</label>
                                             <input type="text"
-                                                   class="form-control @error('title_japanese') is-invalid @enderror" name="title_japanese"
+                                                   class="form-control @error('title_japanese') is-invalid @enderror"
+                                                   name="title_japanese"
                                                    value="{{ old('title_japanese') }}">
                                             @error('title_japanese')
                                             <span class="invalid-feedback" role="alert">
@@ -77,7 +94,8 @@
                                         <div class="col-md-12">
                                             <label class="form-label">French Title</label>
                                             <input type="text"
-                                                   class="form-control @error('title_french') is-invalid @enderror" name="title_french"
+                                                   class="form-control @error('title_french') is-invalid @enderror"
+                                                   name="title_french"
                                                    value="{{ old('title_french') }}">
                                             @error('title_french')
                                             <span class="invalid-feedback" role="alert">
@@ -89,7 +107,8 @@
                                         <div class="col-md-12">
                                             <label class="form-label">Spanish Title</label>
                                             <input type="text"
-                                                   class="form-control @error('title_spanish') is-invalid @enderror" name="title_spanish"
+                                                   class="form-control @error('title_spanish') is-invalid @enderror"
+                                                   name="title_spanish"
                                                    value="{{ old('title_spanish') }}">
                                             @error('title_spanish')
                                             <span class="invalid-feedback" role="alert">
@@ -101,7 +120,8 @@
                                         <div class="col-md-12">
                                             <label class="form-label">Arabic Title</label>
                                             <input type="text"
-                                                   class="form-control @error('title_arabic') is-invalid @enderror" name="title_arabic"
+                                                   class="form-control @error('title_arabic') is-invalid @enderror"
+                                                   name="title_arabic"
                                                    value="{{ old('title_arabic') }}" dir="rtl">
                                             @error('title_arabic')
                                             <span class="invalid-feedback" role="alert">
@@ -112,7 +132,9 @@
 
                                         <div class="col-md-12">
                                             <label class="form-label">English Description</label>
-                                            <textarea name="description_english" class="form-control @error('description_english') is-invalid @enderror" rows="5">{{ old('description_english') }}</textarea>
+                                            <textarea name="description_english"
+                                                      class="form-control @error('description_english') is-invalid @enderror"
+                                                      rows="5">{{ old('description_english') }}</textarea>
                                             @error('description_english')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -122,7 +144,9 @@
 
                                         <div class="col-md-12">
                                             <label class="form-label">Japanese Description</label>
-                                            <textarea name="description_japanese" class="form-control @error('description_japanese') is-invalid @enderror" rows="5">{{ old('description_japanese') }}</textarea>
+                                            <textarea name="description_japanese"
+                                                      class="form-control @error('description_japanese') is-invalid @enderror"
+                                                      rows="5">{{ old('description_japanese') }}</textarea>
                                             @error('description_japanese')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -132,7 +156,9 @@
 
                                         <div class="col-md-12">
                                             <label class="form-label">French Description</label>
-                                            <textarea name="description_french" class="form-control @error('description_french') is-invalid @enderror" rows="5">{{ old('description_french') }}</textarea>
+                                            <textarea name="description_french"
+                                                      class="form-control @error('description_french') is-invalid @enderror"
+                                                      rows="5">{{ old('description_french') }}</textarea>
                                             @error('description_french')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -142,7 +168,9 @@
 
                                         <div class="col-md-12">
                                             <label class="form-label">Spanish Description</label>
-                                            <textarea name="description_spanish" class="form-control @error('description_spanish') is-invalid @enderror" rows="5">{{ old('description_spanish') }}</textarea>
+                                            <textarea name="description_spanish"
+                                                      class="form-control @error('description_spanish') is-invalid @enderror"
+                                                      rows="5">{{ old('description_spanish') }}</textarea>
                                             @error('description_spanish')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -152,7 +180,9 @@
 
                                         <div class="col-md-12">
                                             <label class="form-label">Arabic Description</label>
-                                            <textarea name="description_arabic" class="form-control @error('description_arabic') is-invalid @enderror" rows="5" dir="rtl">{{ old('description_arabic') }}</textarea>
+                                            <textarea name="description_arabic"
+                                                      class="form-control @error('description_arabic') is-invalid @enderror"
+                                                      rows="5" dir="rtl">{{ old('description_arabic') }}</textarea>
                                             @error('description_arabic')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -163,7 +193,8 @@
                                         <div class="col-md-12">
                                             <label class="form-label">Price</label>
                                             <input type="text"
-                                                   class="form-control @error('price') is-invalid @enderror" name="price"
+                                                   class="form-control @error('price') is-invalid @enderror"
+                                                   name="price"
                                                    value="{{ old('price') }}" required>
                                             @error('price')
                                             <span class="invalid-feedback" role="alert">
@@ -191,4 +222,15 @@
 
     </div>
     <!-- end main content-->
+@endsection
+
+@section('script')
+    <!-- filepond js -->
+    <script src="{{ asset('') }}assets/libs/filepond/filepond.min.js"></script>
+    <script src="{{ asset('') }}assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js"></script>
+    <script src="{{ asset('') }}assets/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js"></script>
+    <script src="{{ asset('') }}assets/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js"></script>
+    <script src="{{ asset('') }}assets/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js"></script>
+
+    <script src="{{ asset('') }}assets/js/pages/form-file-upload.init.js"></script>
 @endsection

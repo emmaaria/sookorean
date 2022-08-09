@@ -44,6 +44,14 @@ return [
             'throw' => false,
         ],
 
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => 'ftp.mobilesmartdev.com',
+            'port' => 21,
+            'username' => 'sookorean@mobilesmartdev.com',
+            'password' => 'Shakila@01784',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

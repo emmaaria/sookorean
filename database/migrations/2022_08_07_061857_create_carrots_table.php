@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('carrots', function (Blueprint $table) {
             $table->id();
+            $table->text('image')->nullable();
             $table->text('title_english');
             $table->text('title_japanese')->nullable();
             $table->text('title_french')->nullable();

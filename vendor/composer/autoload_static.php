@@ -119,6 +119,7 @@ class ComposerStaticInit8dbc5ce135127f3a7609cc3628701cb2
         'L' => 
         array (
             'League\\MimeTypeDetection\\' => 25,
+            'League\\Flysystem\\Ftp\\' => 21,
             'League\\Flysystem\\' => 17,
             'League\\Config\\' => 14,
             'League\\CommonMark\\' => 18,
@@ -398,6 +399,10 @@ class ComposerStaticInit8dbc5ce135127f3a7609cc3628701cb2
         'League\\MimeTypeDetection\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
+        ),
+        'League\\Flysystem\\Ftp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem-ftp',
         ),
         'League\\Flysystem\\' => 
         array (
@@ -3087,6 +3092,22 @@ class ComposerStaticInit8dbc5ce135127f3a7609cc3628701cb2
         'League\\Flysystem\\FilesystemOperator' => __DIR__ . '/..' . '/league/flysystem/src/FilesystemOperator.php',
         'League\\Flysystem\\FilesystemReader' => __DIR__ . '/..' . '/league/flysystem/src/FilesystemReader.php',
         'League\\Flysystem\\FilesystemWriter' => __DIR__ . '/..' . '/league/flysystem/src/FilesystemWriter.php',
+        'League\\Flysystem\\Ftp\\ConnectionProvider' => __DIR__ . '/..' . '/league/flysystem-ftp/ConnectionProvider.php',
+        'League\\Flysystem\\Ftp\\ConnectivityChecker' => __DIR__ . '/..' . '/league/flysystem-ftp/ConnectivityChecker.php',
+        'League\\Flysystem\\Ftp\\ConnectivityCheckerThatCanFail' => __DIR__ . '/..' . '/league/flysystem-ftp/ConnectivityCheckerThatCanFail.php',
+        'League\\Flysystem\\Ftp\\FtpAdapter' => __DIR__ . '/..' . '/league/flysystem-ftp/FtpAdapter.php',
+        'League\\Flysystem\\Ftp\\FtpAdapterTestCase' => __DIR__ . '/..' . '/league/flysystem-ftp/FtpAdapterTestCase.php',
+        'League\\Flysystem\\Ftp\\FtpConnectionException' => __DIR__ . '/..' . '/league/flysystem-ftp/FtpConnectionException.php',
+        'League\\Flysystem\\Ftp\\FtpConnectionOptions' => __DIR__ . '/..' . '/league/flysystem-ftp/FtpConnectionOptions.php',
+        'League\\Flysystem\\Ftp\\FtpConnectionProvider' => __DIR__ . '/..' . '/league/flysystem-ftp/FtpConnectionProvider.php',
+        'League\\Flysystem\\Ftp\\InvalidListResponseReceived' => __DIR__ . '/..' . '/league/flysystem-ftp/InvalidListResponseReceived.php',
+        'League\\Flysystem\\Ftp\\NoopCommandConnectivityChecker' => __DIR__ . '/..' . '/league/flysystem-ftp/NoopCommandConnectivityChecker.php',
+        'League\\Flysystem\\Ftp\\RawListFtpConnectivityChecker' => __DIR__ . '/..' . '/league/flysystem-ftp/RawListFtpConnectivityChecker.php',
+        'League\\Flysystem\\Ftp\\UnableToAuthenticate' => __DIR__ . '/..' . '/league/flysystem-ftp/UnableToAuthenticate.php',
+        'League\\Flysystem\\Ftp\\UnableToConnectToFtpHost' => __DIR__ . '/..' . '/league/flysystem-ftp/UnableToConnectToFtpHost.php',
+        'League\\Flysystem\\Ftp\\UnableToEnableUtf8Mode' => __DIR__ . '/..' . '/league/flysystem-ftp/UnableToEnableUtf8Mode.php',
+        'League\\Flysystem\\Ftp\\UnableToMakeConnectionPassive' => __DIR__ . '/..' . '/league/flysystem-ftp/UnableToMakeConnectionPassive.php',
+        'League\\Flysystem\\Ftp\\UnableToSetFtpOption' => __DIR__ . '/..' . '/league/flysystem-ftp/UnableToSetFtpOption.php',
         'League\\Flysystem\\InvalidStreamProvided' => __DIR__ . '/..' . '/league/flysystem/src/InvalidStreamProvided.php',
         'League\\Flysystem\\InvalidVisibilityProvided' => __DIR__ . '/..' . '/league/flysystem/src/InvalidVisibilityProvided.php',
         'League\\Flysystem\\Local\\FallbackMimeTypeDetector' => __DIR__ . '/..' . '/league/flysystem/src/Local/FallbackMimeTypeDetector.php',

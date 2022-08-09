@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class CarrotController extends Controller
@@ -18,11 +20,14 @@ class CarrotController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
+                'image' => ['required', 'mimes:jpeg,jpg,png,gif'],
                 'title_english' => 'required',
                 'description_english' => 'required',
                 'price' => 'required',
             ],
             [
+                'image.required' => 'Image is required',
+                'image.mimes' => 'This types of file is not allowed',
                 'title_english.required' => 'English title is required',
                 'description_english.required' => 'English description is required',
                 'price.required' => 'Price is required',
@@ -34,7 +39,13 @@ class CarrotController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+        if ($request->hasFile('image')) {
+            $fileName = $request->file('image')->store('carrot');
+            $filePath = Storage::get($fileName);
+            Storage::disk('ftp')->put($filePath, $fileName);
+        }
         $data = [
+            'image' => $fileName,
             'title_english' => $request->title_english,
             'title_japanese' => $request->title_japanese,
             'title_french' => $request->title_french,
