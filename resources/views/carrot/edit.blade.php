@@ -52,6 +52,17 @@
                                     <input type="hidden" name="id" value="{{ $row->id }}">
                                     <div class="row gy-4">
                                         <div class="col-md-12">
+                                            <label class="form-label">Image</label>
+                                            <img src="{{ \Illuminate\Support\Facades\Storage::disk('ftp')->url($row->image) }}" />
+                                            <input type="file" accept=".jpeg, .jpg, .png, .gif" class="form-control @error('image') is-invalid @enderror"
+                                                   name="image" required>
+                                            @error('image')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-12">
                                             <label class="form-label">English Title</label>
                                             <input type="text"
                                                    class="form-control @error('title_english') is-invalid @enderror" name="title_english"
